@@ -1,37 +1,42 @@
 var todoApp = {
-
-
-
-//Creates an array to put the todo objects in
-
-  todoItems: [],
-
-//creates a new task
+// - Implement the todoApp createTask method to:
+//   - create a new instance of a todoItem object
+//   - Use the new task objects setTaskText method to set the task text from the argument
+//   - call the todoApp appendTask method passing the new task object as an argument
+  todos: [],
   createTask: function(){
-    var newTodoItem = Object.create(todoItem);
-    this.todo.push(newTodoItem);
+    var newTodo = Object.create(todoItem);
+    console.log("creating newTodo" + newTodo);
+    newTodo.setTaskText(input);
+    this.todos.push(newTodo);
+  },
+  appendTask: function(){
+    var parent = document.getElementById('todo-items');
+    var tag = document.createElement('li');
+    for (var i = 0; i < this.todos.length; i++) {
+      console.log(i);
+    tag.innerText = this.todos[i].taskText;
+    parent.appendChild(tag);
+    }
   },
 
-// appends the task to the DOM
-  appendTask: function() {
-      var parent = document.getElementById('todo-items');
-      var tag = document.createElement('li');
-      for (var i = 0; i < todoItems.length; i++) {
-      tag.innerText = this.todos[i].taskText;
-      parent.appendChild(tag);
-    }
+  completeButton: function(){
+    document.createElement('button');
   }
 };
+
+
+
 
 var todoItem = {
-  // sets the task text
+  taskText: "",
   setTaskText: function(taskInput){
-    newTodoItem.taskText = taskInput;
+    this.taskText = taskInput;
   }
-
 };
 
-// This creates a clones of the object
+
+
 
 if (typeof Object.create !== 'function') {
     Object.create = function (o) {
@@ -39,21 +44,21 @@ if (typeof Object.create !== 'function') {
         F.prototype = o;
         return new F();
     };
-};
+}
 
 
-newTodoItem = Object.create(todoItem);
-
-
-var input;
-
-// Loads the window
+  var addItemButton;
+  var input;
 window.onload = function(){
 
-// On click adds the text field to a new newTodoItem and pushs it into an arrayg
-document.getElementById('add-item').onclick = function(event) {
-  createTask('new-text-field.value');
-};
-
+  // - Use the window.onload event to pick out an 'add-item' button
+// - Add an onclick event handler that will call a todoApp createTask method and input from the 'new-task-field' field as an argument
+  addItemButton = document.getElementById('add-item');
+  addItemButton.onclick = function(event) {
+    input = document.getElementById('new-task-field').value;
+    todoApp.createTask();
+    console.log(input);
+    todoApp.appendTask();
+  };
 
 };

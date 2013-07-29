@@ -1,30 +1,31 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html>
   <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="src/todo.js"></script>
+    <meta charset="utf=8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="src/todo.js"></script>
     <title>Todo</title>
   </head>
-    <body>
-        <div id="container">
-          <h1>Todo App</h1>
-          <div id="unfinished">
-                <h2>These are unfinished Items</h2>
-                  <input type="text" id="new-text-field">
-                  <button id="add-item">Input a Task</button>
-                <ol id="todo items">
-                  <li></li>
-                  <li></li>
-                </ol>
-          </div>
+  <body>
+    <div id="container">
+        <h3>JS Todo App</h3>
 
-          <div id="finished">
-                <h2>These are completed Items</h2>
-                  <ul id="completed-items">
-                    <li></li>
-                    <li></li>
-                  </ul>
-          </div>
+        <div id="unfinished">
+          <p>Unfinshed todo items:</p>
+          <input type="text" id="new-task-field">
+          <input id="add-item" class="button" type="submit" value="Add item"/>
+          <!-- <button id="add-item">New Task</button> -->
+          <ol id ="todo-items"></ol>
+
         </div>
-    </body>
+
+        <div id="finished">
+          <p>Completed todo items:</p>
+          <ul id="completed-items"></ul>
+        </div>
+    </div>
+
+
+  </body>
+
+</html>
