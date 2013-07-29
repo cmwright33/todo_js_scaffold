@@ -17,15 +17,22 @@ var todoApp = {
       console.log(i);
     tag.innerText = this.todos[i].taskText;
     parent.appendChild(tag);
+    this.appendChild(createCompleteButton);
     }
   },
 
-  completeButton: function(){
-    document.createElement('button');
+    createCompleteButton: function(){
+      var li = document.getElementsByTagName('li');
+      var completeButton = document.createElement('button');
+      completeButton.className = "completeButton";
+      completeButton.innerText = "Task completed";
+      for (var i = 0; i < li.length; i++) {
+        li[i].appendChild(completeButton);
+    }
   }
+
+
 };
-
-
 
 
 var todoItem = {
